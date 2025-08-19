@@ -47,9 +47,9 @@ site/
 
 As imagens estão organizadas na pasta `fotos/` e são referenciadas corretamente no HTML. O site está configurado para exibir 3 fotos principais:
 
-- `img1.jpeg` - Primeiro Nascer do Sol
-- `img2.jpeg` - Jantar Especial  
-- `img3.jpeg` - Cinema
+- `[img1.jpeg](https://github.com/GustaXH7/sitedela/blob/9f137062cc7f70815d2da32ed9f4dadd5eddf07b/img1.jpeg)` - Primeiro Nascer do Sol
+- `[img2.jpeg](https://github.com/GustaXH7/sitedela/blob/9f137062cc7f70815d2da32ed9f4dadd5eddf07b/img2.jpeg)` - Jantar Especial  
+- `i[mg3.jpeg](https://github.com/GustaXH7/sitedela/blob/9f137062cc7f70815d2da32ed9f4dadd5eddf07b/img1.jpeg)` - Cinema
 
 ## 🎵 Músicas
 
@@ -128,3 +128,4 @@ Este projeto foi criado especialmente para celebrar o amor e os momentos especia
 ---
 
 **Desenvolvido com ❤️ para celebrar o amor**
+
