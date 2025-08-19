@@ -1,0 +1,495 @@
+/* Fontes */
+.dancing-script { font-family: 'Dancing Script', cursive; }
+.poppins { font-family: 'Poppins', sans-serif; }
+
+/* Efeitos de fundo e gradientes */
+.love-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    position: relative;
+}
+
+.love-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hearts" patternUnits="userSpaceOnUse" width="20" height="20"><path d="M10,6 Q10,0 15,6 T20,6 Q20,10 15,15 T10,20 Q10,15 5,15 T0,10 Q0,6 5,6 T10,6" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23hearts)"/></svg>');
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Animações aprimoradas */
+.heart-float {
+    animation: heartFloat 4s ease-in-out infinite;
+    filter: drop-shadow(0 4px 8px rgba(255, 182, 193, 0.3));
+    position: relative;
+}
+
+.heart-float::after {
+    content: '✨';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 0.5em;
+    animation: sparkle 2s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+@keyframes heartFloat {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg) scale(1); 
+        filter: drop-shadow(0 4px 8px rgba(255, 182, 193, 0.3));
+    }
+    25% { 
+        transform: translateY(-8px) rotate(2deg) scale(1.05); 
+        filter: drop-shadow(0 8px 16px rgba(255, 182, 193, 0.4));
+    }
+    50% { 
+        transform: translateY(-15px) rotate(-2deg) scale(1.1); 
+        filter: drop-shadow(0 12px 24px rgba(255, 182, 193, 0.5));
+    }
+    75% { 
+        transform: translateY(-8px) rotate(1deg) scale(1.05); 
+        filter: drop-shadow(0 8px 16px rgba(255, 182, 193, 0.4));
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px) scale(0.95); 
+        filter: blur(5px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+        filter: blur(0px);
+    }
+}
+
+/* Efeitos de cartão aprimorados */
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.card-hover:hover::before {
+    left: 100%;
+}
+
+.card-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 25px 50px rgba(0,0,0,0.15), 
+        0 0 0 1px rgba(255,255,255,0.1),
+        0 0 40px rgba(255,182,193,0.3);
+}
+
+/* Efeitos de foto aprimorados */
+.photo-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    position: relative;
+    border-radius: 1rem;
+}
+
+.photo-hover img {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.photo-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.photo-hover::after {
+    content: '💕';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 3rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.photo-hover:hover::before {
+    opacity: 1;
+}
+
+.photo-hover:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.photo-hover:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.1) contrast(1.1);
+}
+
+.photo-hover:hover .emoji-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.emoji-icon {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Contador aprimorado */
+.counter-number {
+    background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    animation: counterGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes counterGlow {
+    0% { filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.3)); }
+    100% { filter: drop-shadow(0 0 15px rgba(102, 126, 234, 0.6)); }
+}
+
+.pulse-heart {
+    animation: pulseHeart 2s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(255, 182, 193, 0.3));
+    position: relative;
+}
+
+@keyframes pulseHeart {
+    0%, 100% { 
+        transform: scale(1); 
+        filter: drop-shadow(0 2px 4px rgba(255, 182, 193, 0.3));
+    }
+    50% { 
+        transform: scale(1.15); 
+        filter: drop-shadow(0 4px 8px rgba(255, 182, 193, 0.5));
+    }
+}
+
+/* Scroll suave */
+.scroll-smooth {
+    scroll-behavior: smooth;
+}
+
+/* Efeito de vidro aprimorado */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.glass-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(255,255,255,0.05) 100%);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+/* Sombras de texto */
+.text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Botões elegantes aprimorados */
+.elegant-button {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.elegant-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.elegant-button:hover::before {
+    left: 100%;
+}
+
+.elegant-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 25px rgba(102, 126, 234, 0.6),
+        0 0 20px rgba(102, 126, 234, 0.3);
+    background: linear-gradient(135deg, #764ba2, #667eea);
+}
+
+/* Botões de música aprimorados */
+.music-button {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(240, 147, 251, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.music-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.music-button:hover::before {
+    left: 100%;
+}
+
+.music-button:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 6px 20px rgba(240, 147, 251, 0.6),
+        0 0 15px rgba(240, 147, 251, 0.3);
+}
+
+/* Corações flutuantes aprimorados */
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+    opacity: 0;
+    filter: drop-shadow(0 2px 4px rgba(255, 182, 193, 0.3));
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(0deg) scale(0.5);
+        filter: drop-shadow(0 2px 4px rgba(255, 182, 193, 0.3));
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(90vh) rotate(36deg) scale(0.8);
+    }
+    50% {
+        transform: translateY(50vh) rotate(180deg) scale(1.2);
+        filter: drop-shadow(0 4px 8px rgba(255, 182, 193, 0.5));
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(10vh) rotate(324deg) scale(0.8);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) rotate(360deg) scale(0.5);
+        filter: drop-shadow(0 2px 4px rgba(255, 182, 193, 0.3));
+    }
+}
+
+/* Efeitos especiais para a carta */
+.letter-paper {
+    position: relative;
+    background: linear-gradient(135deg, #fefefe 0%, #f8f8f8 100%);
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.1),
+        0 0 0 1px rgba(255,255,255,0.8),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.letter-paper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(255,182,193,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(102,126,234,0.1) 0%, transparent 50%);
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+/* Efeitos de navegação aprimorados */
+nav a {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #667eea, #f093fb);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::before {
+    width: 100%;
+}
+
+/* Efeitos de loading e transições */
+.loading {
+    animation: loadingPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes loadingPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Responsividade aprimorada */
+@media (max-width: 768px) {
+    .heart-float {
+        font-size: 4rem;
+    }
+    
+    .card-hover:hover {
+        transform: translateY(-4px) scale(1.01);
+    }
+    
+    .floating-heart {
+        font-size: 16px;
+    }
+}
+
+/* Efeitos de foco para acessibilidade */
+.elegant-button:focus,
+.music-button:focus {
+    outline: 2px solid rgba(102, 126, 234, 0.5);
+    outline-offset: 2px;
+}
+
+/* Efeitos de partículas de fundo */
+.particle-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: particleFloat 8s linear infinite;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* Efeitos de brilho */
+.glow-effect {
+    position: relative;
+}
+
+.glow-effect::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #667eea, #f093fb, #f5576c, #4facfe);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.glow-effect:hover::after {
+    opacity: 0.7;
+    animation: glowRotate 2s linear infinite;
+}
+
+@keyframes glowRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
